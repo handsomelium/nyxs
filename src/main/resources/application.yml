@@ -2,4 +2,45 @@ server:
   port: 19999
   servlet:
     context-path: /nyxsservice
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
 
+# 数据源配置
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://150.158.50.73:3310/nbems?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: liu3366998
+
+
+# MyBatis配置
+mybatis-plus:
+  # 搜索指定包别名
+  typeAliasesPackage: com.ake.**.domain
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 加载全局的配置文件
+  configLocation: classpath:mybatis/mybatis-config.xml
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  # 自动分页
+  supportMethodsArguments: false
+  params: count=countSql
+
+# 日志配置
+logging:
+  file:
+    name: /data/logs/sys-error.log
+  config: classpath:logback-dev.xml
+  level:
+    com.ake: debug
+    org.springframework: warn
