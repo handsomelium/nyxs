@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+	<h1>Hello websocket !</h1>
+	频道:
+	<br/>
+	<input type="text" value="test" id="chn">
+	<input type="button" value="订阅" onclick="subscibe();">
+	<br/>
+	收到的消息：
+	<br/>
+	<textarea rows="3" cols="100" id="receviced"></textarea>
+	<br/>
+	发送广播：
+	<br/>
+	<textarea rows="3" cols="100" id="sendContent"></textarea>
+	<br/>
+	<input type="button" value="发送" onclick="sendAll();">
+
+	<script type="text/javascript">
+		var socket;
+		//订阅
+		var subscibe = function(){
+			var chn = $("#chn").val();
+			if (typeof(WebSocket) == "undefined"){
+		        console.log("遗憾：您的浏览器不支持WebSocket");
+		    } else {
+		        console.log("恭喜：您的浏览器支持WebSocket");
+		        //实现化WebSocket对象
+		        //指定要连接的服务器地址与端口建立连接
+		        //注意ws、wss使用不同的端口。我使用自签名的证书测试，
+		        //无法使用wss，浏览器打开WebSocket时报错
+		        //ws对应http、wss对应https。 
+		        socket = new WebSocket("ws://localhost:19999/nyxsservice/websocket/"+chn);
+		        //连接打开事件
+		        socket.onopen = function(){
+		            console.log("Socket 已打开");
+		            socket.send("消息发送测试(From Client)");
+		        };
+		        //收到消息事件
+		        socket.onmessage = function(msg){
+		        	console.log(msg);
+		            console.log(msg.data);
+		            $("#receviced").val(msg.data);
+		            //var result = JSON.parse(msg.data);
+		            //console.log(result);
+		        };
+		        //连接关闭事件
+		        socket.onclose = function(){
+		            console.log("Socket已关闭");
+		        };
+		        //发生了错误事件
+		        socket.onerror = function(){
+		            alert("Socket发生了错误");
+		        }
+		        //窗口关闭时，关闭连接
+		        window.unload=function(){
+		            socket.close();
+		        };
+		    }
+		}
+		
+		//群发消息
+		var sendAll = function(){
+			var chn = $("#chn").val();
+			var sendContent = $("#sendContent").val();
+			$.ajax({
+		        type: "post",
+		        url: "/nyxsservice/websocket/"+chn+"/sendAll",
+		        async: true,
+		        data: JSON.stringify({
+					message:sendContent,
+	        	}),
+		        contentType: "application/json; charset=utf-8",
+		        dataType: "json",
+		        success: function(data){
+		           console.log(data);
+		        }
+		    });
+		}
+	</script>
+</body>
+</html>
