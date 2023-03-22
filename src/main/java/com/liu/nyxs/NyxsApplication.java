@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class NyxsApplication implements CommandLineRunner {
 
-    @Autowired
-    private NettyServer nettyServer;
-
     public static void main(String[] args) {
         SpringApplication.run(NyxsApplication.class, args);
     }
