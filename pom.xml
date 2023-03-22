@@ -28,6 +28,12 @@
             <version>3.3.2</version>
         </dependency>
 
+        <!-- SpringBoot Boot Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!-- pagehelper 分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
