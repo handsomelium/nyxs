@@ -117,6 +117,13 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.48.Final</version>
         </dependency>
+
+        <!--redisson-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.12.3</version>
+        </dependency>
     </dependencies>
 
     <build>
