@@ -1,6 +1,5 @@
 package com.liu.nyxs.controller;
 
-
 import com.liu.nyxs.domain.AjaxResult;
 import com.liu.nyxs.domain.WebsocketMessage;
 import com.liu.nyxs.utils.DateUtils;
@@ -29,9 +28,6 @@ public class WebSocketController {
 
 	/**
 	 * 群发消息内容
-	 * 
-	 * @param message
-	 * @return
 	 */
 	@PostMapping("/sendAll")
 	@ResponseBody
@@ -48,10 +44,6 @@ public class WebSocketController {
 
 	/**
 	 * 指定会话ID发消息
-	 * 
-	 * @param message 消息内容
-	 * @param id      连接会话ID
-	 * @return
 	 */
 	@PostMapping(value = "/sendOne")
 	@ResponseBody
@@ -69,9 +61,6 @@ public class WebSocketController {
 
 	/**
 	 * 外部调用样例
-	 * 
-	 * @param message
-	 * @return
 	 */
 	@GetMapping("/sendAllTest")
 	@ResponseBody

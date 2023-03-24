@@ -39,8 +39,7 @@ public class RedisLockTest {
     public void testDistributedLock() {
 
         long startTime = System.currentTimeMillis();
-
-
+        
         for (int i = 0; i< 5; i++){
             POOL.execute(() -> {
                 while (true){
