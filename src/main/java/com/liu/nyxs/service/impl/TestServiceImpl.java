@@ -1,7 +1,7 @@
 package com.liu.nyxs.service.impl;
 
 import com.liu.nyxs.domain.entity.TestDO;
-import com.liu.nyxs.mapper.TestMapper;
+import com.liu.nyxs.mapper.mysql.TestMapper;
 import com.liu.nyxs.service.ITestService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -2,6 +2,7 @@ package com.liu.nyxs.test;
 
 import com.liu.nyxs.NyxsApplication;
 import com.liu.nyxs.domain.entity.TestDO;
+import com.liu.nyxs.service.IMeterService;
 import com.liu.nyxs.service.ITestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class TestMybatisPlus {
 
     @Autowired
     private ITestService testService;
+
+    @Autowired
+    private IMeterService meterService;
 
     @Autowired
     private ThreadPoolTaskExecutor taskExecutor;
@@ -63,6 +67,13 @@ public class TestMybatisPlus {
 
         System.out.println("执行结束");
 
+    }
+
+
+    @Test
+    public void testTdengine(){
+        long count = meterService.totalCount();
+        System.out.println(count);
     }
 
 

@@ -14,10 +14,10 @@ spring:
   # 配置数据源信息
   datasource:
     dynamic:
-      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      primary: mysql-service #设置默认的数据源或者数据源组,默认值即为master
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
-        master:
+        mysql-service:
           url: jdbc:mysql://150.158.50.73:3310/nyxs?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
           username: root
           password: liu3366998
@@ -31,22 +31,21 @@ spring:
             maxActive: 50
             # 配置获取连接等待超时的时间
             maxWait: 60000
-        slave_1:
-          url:
-          username:
-          password:
-          driver-class-name: com.mysql.cj.jdbc.Driver
+        tdengine-service:
+          driver-class-name: com.taosdata.jdbc.rs.RestfulDriver
+          url: jdbc:TAOS://150.158.50.73:6041/test?timezone=GMT%2b8
+          username: root
+          password: taosdata
 
   redis:
     host: 150.158.50.73
     port: 6379
     password: 123456
 
-
 # MyBatis配置
 mybatis-plus:
   # 搜索指定包别名
-  typeAliasesPackage: com.ake.**.domain
+  typeAliasesPackage: com.liu.**.domain
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/**/*Mapper.xml
   # 加载全局的配置文件
