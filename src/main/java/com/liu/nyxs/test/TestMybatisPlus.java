@@ -1,7 +1,9 @@
 package com.liu.nyxs.test;
 
 import com.liu.nyxs.NyxsApplication;
+import com.liu.nyxs.domain.entity.Meters;
 import com.liu.nyxs.domain.entity.TestDO;
+import com.liu.nyxs.domain.entity.Weather;
 import com.liu.nyxs.service.IMeterService;
 import com.liu.nyxs.service.ITestService;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -38,7 +39,7 @@ public class TestMybatisPlus {
 
     @Test
     public void findAll(){
-        List<TestDO> list = testService.list();
+        List<TestDO> list = testService.getAll();
         System.out.println(list);
     }
 
@@ -70,11 +71,6 @@ public class TestMybatisPlus {
     }
 
 
-    @Test
-    public void testTdengine(){
-        long count = meterService.totalCount();
-        System.out.println(count);
-    }
 
 
 

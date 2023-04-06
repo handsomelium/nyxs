@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liu.nyxs.domain.entity.TestDO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  * 测试用 Mapper 接口
@@ -17,4 +19,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface TestMapper extends BaseMapper<TestDO> {
 
+    List<TestDO> getAll();
 }

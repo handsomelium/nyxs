@@ -2,7 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liu.nyxs.mapper.tdengine.MeterMapper">
 
-    <select id="totalCount" resultType="java.lang.Integer">
-        select count(*) from test.meters
+    <resultMap id="countResultMap" type="com.liu.nyxs.domain.entity.TestDO">
+        <id column="ts" jdbcType="TIMESTAMP" property="ts"/>
+        <result column="current" jdbcType="DECIMAL" property="current"/>
+        <result column="voltage" jdbcType="DECIMAL" property="voltage"/>
+        <result column="phase" jdbcType="DECIMAL" property="phase"/>
+        <result column="groupid" jdbcType="INTEGER" property="groupid"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+
+    </resultMap>
+
+
+
+    <select id="list" resultMap="countResultMap">
+        select * from meters limit 10
     </select>
+
+
+    <select id="totalCount" resultType="java.lang.Integer">
+        select count(*) from test.meters;
+
+    </select>
+
+
+
 </mapper>
