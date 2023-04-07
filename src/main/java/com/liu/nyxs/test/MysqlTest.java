@@ -24,7 +24,7 @@ import java.util.concurrent.Future;
  */
 
 @SpringBootTest(classes = NyxsApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TestMybatisPlus {
+public class MysqlTest {
 
     @Autowired
     private ITestService testService;
@@ -39,7 +39,7 @@ public class TestMybatisPlus {
 
     @Test
     public void findAll(){
-        List<TestDO> list = testService.getAll();
+        List<TestDO> list = testService.list();
         System.out.println(list);
     }
 
