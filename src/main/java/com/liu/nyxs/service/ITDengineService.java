@@ -17,7 +17,7 @@ public interface ITDengineService {
 
     void createSuperTable();
 
-    void insertTdengine(List<Weather> weather);
+    int insertTdengine(List<Weather> weather);
 
     int  createTable();
 

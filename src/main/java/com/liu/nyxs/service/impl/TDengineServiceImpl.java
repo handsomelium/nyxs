@@ -39,8 +39,8 @@ public class TDengineServiceImpl implements ITDengineService {
 
 
     @Override
-    public void insertTdengine(List<Weather> weather) {
-        weatherMapper.insertTdengine(weather);
+    public int insertTdengine(List<Weather> weather) {
+        return weatherMapper.insertTdengine(weather);
     }
 
 

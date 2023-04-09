@@ -2,10 +2,13 @@ package com.liu.nyxs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Data
 public class Weather {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS", timezone = "GMT+8")
@@ -24,43 +27,4 @@ public class Weather {
         this.humidity = humidity;
     }
 
-    public Timestamp getTs() {
-        return ts;
-    }
-
-    public void setTs(Timestamp ts) {
-        this.ts = ts;
-    }
-
-    public Float getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(Float temperature) {
-        this.temperature = temperature;
-    }
-
-    public Float getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(Float humidity) {
-        this.humidity = humidity;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
 }

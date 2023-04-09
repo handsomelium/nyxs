@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.liu.nyxs.domain.entity.Weather;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Map;
  * @Description
  */
 
-@DS("tdengine")
+@DS("tdengine-service")
 @Mapper
 public interface WeatherMapper {
 
@@ -22,7 +23,7 @@ public interface WeatherMapper {
 
     void createSuperTable();
 
-    void insertTdengine(List<Weather> weather);
+    int insertTdengine(@Param("list") List<Weather> list);
 
     void createTable(Weather weather);
 

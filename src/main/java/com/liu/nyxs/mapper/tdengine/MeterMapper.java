@@ -13,7 +13,7 @@ import java.util.List;
  * @Date 2023/4/4
  * @Description
  */
-@DS("tdengine")
+@DS("tdengine-service")
 @Mapper
 public interface MeterMapper extends BaseMapper<Meters> {
 
