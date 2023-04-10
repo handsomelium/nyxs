@@ -53,7 +53,7 @@ public class TDengineTest {
 
         long start = System.currentTimeMillis();
         List<Future<Integer>> futures = new ArrayList<>();
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 40; i++){
             Thread.sleep(1);
             Future<Integer> future = threadPoolTaskExecutor.submit(() -> {
                 List<Weather> list = new ArrayList<>();
@@ -64,16 +64,22 @@ public class TDengineTest {
                     Weather weather = new Weather(new Timestamp(ts + (thirtySec * y)), 30 * random.nextFloat(), random.nextInt(100));
                     list.add(weather);
                 }
-                return dengineService.insertTdengine(list);
+                int count = dengineService.insertTdengine(list);
+
+                System.out.println("线程" + Thread.currentThread().getName() + "插入了数据" + count + "条");
+
+                return count;
+
 
             });
+
             futures.add(future);
         }
 
         int totalCount = 0;
         for (Future<Integer> future : futures){
             Integer integer = future.get();
-            totalCount = totalCount + integer * 50;
+            totalCount = totalCount + integer;
 
         }
         long end = System.currentTimeMillis();
@@ -90,7 +96,7 @@ public class TDengineTest {
         long ts = System.currentTimeMillis();
         Random random = new Random(ts);
         long thirtySec = 1000 * 30;
-        for (int y = 0; y < 100; y++) {
+        for (int y = 0; y < 10000; y++) {
             Weather weather = new Weather(new Timestamp(ts + (thirtySec * y)), 30 * random.nextFloat(), random.nextInt(100));
             list.add(weather);
         }
