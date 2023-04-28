@@ -18,5 +18,5 @@ public interface IMeterService extends IService<Meters> {
 
     List<Meters> testTdengineData();
 
-
+    Integer testTransaction();
 }
