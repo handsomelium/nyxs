@@ -3,6 +3,7 @@ package com.liu.nyxs.test;
 import com.liu.nyxs.NyxsApplication;
 import com.liu.nyxs.domain.entity.TestDO;
 import com.liu.nyxs.service.ITestService;
+import com.liu.nyxs.utils.spring.SpringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -62,6 +63,15 @@ public class TestMybatisPlus {
         }
 
         System.out.println("执行结束");
+
+    }
+
+
+    @Test
+    public void ttt(){
+        ITestService testService = SpringUtils.getBean("testServiceImpl");
+
+        System.out.println(testService);
 
     }
 
