@@ -3,6 +3,8 @@ package com.liu.nyxs.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.liu.nyxs.domain.entity.TestDO;
 
+import java.util.List;
+
 /**
  * <p>
  * 测试用 服务类
@@ -13,4 +15,5 @@ import com.liu.nyxs.domain.entity.TestDO;
  */
 public interface ITestService extends IService<TestDO> {
 
+    List<TestDO> getAll();
 }

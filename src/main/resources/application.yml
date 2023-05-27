@@ -11,46 +11,54 @@ server:
 spring:
   main:
     allow-circular-references: true
-  # 配置数据源信息
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     dynamic:
-      primary: master #设置默认的数据源或者数据源组,默认值即为master
-      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      primary: mysql-service # 默认数据源
       datasource:
-        master:
-          url: jdbc:mysql://150.158.50.73:3310/nyxs?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        mysql-service:
+          jdbc-url: jdbc:mysql://150.158.50.73:3310/nyxs?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
           username: root
           password: liu3366998
-          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
-          druid:
-            # 初始连接数
-            initialSize: 10
-            # 最小连接池数量
-            minIdle: 20
-            # 最大连接池数量
-            maxActive: 50
-            # 配置获取连接等待超时的时间
-            maxWait: 60000
-        slave_1:
-          url:
-          username:
-          password:
           driver-class-name: com.mysql.cj.jdbc.Driver
+        tdengine-service:
+          # url: jdbc:TAOS-RS://150.158.50.73:6041/demo?charset=utf-8
+          # driver-class-name: com.taosdata.jdbc.rs.RestfulDriver
+          url: jdbc:TAOS://150.158.50.73:6030/demo?charset=utf-8
+          driver-class-name: com.taosdata.jdbc.TSDBDriver
+          username: root
+          password: taosdata
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxActive: 200
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      filters: stat,wall,log4j2
+
+
 
   redis:
     host: 150.158.50.73
     port: 6379
     password: 123456
 
-
 # MyBatis配置
 mybatis-plus:
   # 搜索指定包别名
-  typeAliasesPackage: com.ake.**.domain
+  typeAliasesPackage: com.liu.**.domain
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/**/*Mapper.xml
   # 加载全局的配置文件
   configLocation: classpath:mybatis/mybatis-config.xml
+
+
 
 # PageHelper分页插件
 pagehelper:
@@ -66,5 +74,5 @@ logging:
     name: /data/logs/sys-error.log
   config: classpath:logback-dev.xml
   level:
-    com.ake: debug
+    com.liu: debug
     org.springframework: warn

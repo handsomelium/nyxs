@@ -1,7 +1,10 @@
 package com.liu.nyxs.test;
 
 import com.liu.nyxs.NyxsApplication;
+import com.liu.nyxs.domain.entity.Meters;
 import com.liu.nyxs.domain.entity.TestDO;
+import com.liu.nyxs.domain.entity.Weather;
+import com.liu.nyxs.service.IMeterService;
 import com.liu.nyxs.service.ITestService;
 import com.liu.nyxs.utils.spring.SpringUtils;
 import org.junit.jupiter.api.Test;
@@ -12,7 +15,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -23,10 +25,13 @@ import java.util.concurrent.Future;
  */
 
 @SpringBootTest(classes = NyxsApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TestMybatisPlus {
+public class MysqlTest {
 
     @Autowired
     private ITestService testService;
+
+    @Autowired
+    private IMeterService meterService;
 
     @Autowired
     private ThreadPoolTaskExecutor taskExecutor;
@@ -74,6 +79,8 @@ public class TestMybatisPlus {
         System.out.println(testService);
 
     }
+
+
 
 
 

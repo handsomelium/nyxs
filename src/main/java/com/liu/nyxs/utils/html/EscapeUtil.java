@@ -1,7 +1,7 @@
 package com.liu.nyxs.utils.html;
 
 
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 转义和反转义工具类
