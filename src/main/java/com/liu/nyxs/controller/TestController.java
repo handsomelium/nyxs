@@ -40,7 +40,7 @@ public class TestController {
         return meterService.testTransaction();
     }
 
-
+    // http://127.0.0.1:19999/nyxsservice/test/testTree
     @GetMapping("/testTree")
     public R<List<Tree<Long>>> testTree(){
         List<SysMenu> sysMenuList = sysMenuService.list();

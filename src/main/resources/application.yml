@@ -17,7 +17,7 @@ spring:
       primary: mysql-service # 默认数据源
       datasource:
         mysql-service:
-          jdbc-url: jdbc:mysql://150.158.50.73:3310/nyxs?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://150.158.50.73:3310/nyxs?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
           username: root
           password: liu3366998
           driver-class-name: com.mysql.cj.jdbc.Driver
@@ -76,3 +76,9 @@ logging:
   level:
     com.liu: debug
     org.springframework: warn
+
+# 积木报表
+minidao:
+  base-package: org.jeecg.modules.jmreport.desreport.dao*
+  db-type: mysql
+

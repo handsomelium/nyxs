@@ -1,12 +1,13 @@
 package com.liu.nyxs;
 
-import com.liu.nyxs.netty.NettyServer;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {MongoAutoConfiguration.class}, scanBasePackages = {"org.jeecg.modules.jmreport","com.liu"})
+@MapperScan("com.liu.nyxs.mapper")
 public class NyxsApplication implements CommandLineRunner {
 
     public static void main(String[] args) {

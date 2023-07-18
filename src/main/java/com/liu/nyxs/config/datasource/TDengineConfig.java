@@ -18,11 +18,11 @@ import javax.sql.DataSource;
  * 描述: TDengine配置类
 
  */
-@Configuration
-@MapperScan(basePackages = {"com.liu.nyxs.mapper.tdengine"}, sqlSessionTemplateRef = "tdengineSqlSessionTemplate")
+/*@Configuration
+@MapperScan(basePackages = {"com.liu.nyxs.mapper.tdengine"}, sqlSessionTemplateRef = "tdengineSqlSessionTemplate")*/
 public class TDengineConfig {
 
-    private static final String MAPPER_LOCATION = "classpath:mapper/tdengine/*.xml";
+    /*private static final String MAPPER_LOCATION = "classpath:mapper/tdengine/*.xml";
 
     @Bean(name = "tDengineDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.dynamic.datasource.tdengine-service")
@@ -42,5 +42,5 @@ public class TDengineConfig {
     public SqlSessionTemplate tdengineSqlSessionTemplate(@Qualifier("tDengineSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
-
+*/
 }

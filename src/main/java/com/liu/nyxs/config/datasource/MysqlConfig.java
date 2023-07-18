@@ -1,30 +1,14 @@
 package com.liu.nyxs.config.datasource;
 
-import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-
-import javax.sql.DataSource;
-
-
 /**
  * mysql配置类
  */
-@Configuration
-@MapperScan(basePackages = {"com.liu.nyxs.mapper.mysql"}, sqlSessionTemplateRef = "mysqlSqlSessionTemplate")
+/*@Configuration
+@MapperScan(basePackages = {"com.liu.nyxs.mapper.mysql"}, sqlSessionTemplateRef = "mysqlSqlSessionTemplate")*/
 public class MysqlConfig {
 
 
-    private static final String MAPPER_LOCATION = "classpath:mapper/mysql/*.xml";
+    /*private static final String MAPPER_LOCATION = "classpath:mapper/mysql/*.xml";
 
     @Bean(name = "mysqlDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.dynamic.datasource.mysql-service")
@@ -53,6 +37,6 @@ public class MysqlConfig {
     @Primary
     public SqlSessionTemplate mysqlSqlSessionTemplate(@Qualifier("mysqlSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
-    }
+    }*/
 }
 
