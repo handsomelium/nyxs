@@ -15,10 +15,8 @@ import javax.sql.DataSource;
 
 
 /**
- * 类名: TDengineConfig
  * 描述: TDengine配置类
- * 时间: 2022/5/13,0016 1:14
- * 开发人: wxy
+
  */
 @Configuration
 @MapperScan(basePackages = {"com.liu.nyxs.mapper.tdengine"}, sqlSessionTemplateRef = "tdengineSqlSessionTemplate")

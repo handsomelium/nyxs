@@ -18,7 +18,6 @@ import javax.sql.DataSource;
 
 /**
  * mysql配置类
- * @author zhengwen
  */
 @Configuration
 @MapperScan(basePackages = {"com.liu.nyxs.mapper.mysql"}, sqlSessionTemplateRef = "mysqlSqlSessionTemplate")
