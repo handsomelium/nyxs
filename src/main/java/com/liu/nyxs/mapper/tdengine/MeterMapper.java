@@ -3,7 +3,6 @@ package com.liu.nyxs.mapper.tdengine;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liu.nyxs.domain.entity.Meters;
-import com.liu.nyxs.domain.entity.Weather;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

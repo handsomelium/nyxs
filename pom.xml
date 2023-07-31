@@ -89,11 +89,11 @@
         </dependency>
 
         <!-- 阿里JSON解析器 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.75</version>
-        </dependency>
+        </dependency>-->
 
         <!--Token生成与解析 -->
         <dependency>
@@ -175,6 +175,14 @@
             <groupId>org.jeecgframework.jimureport</groupId>
             <artifactId>jimureport-spring-boot-starter</artifactId>
             <version>1.4.0-beta</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
         </dependency>
 
 
