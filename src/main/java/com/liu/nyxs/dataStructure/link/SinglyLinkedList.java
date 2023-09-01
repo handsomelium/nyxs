@@ -136,5 +136,28 @@ public class SinglyLinkedList implements Iterable<Integer> {
     }
 
 
+    /**
+     * 根据索引删除节点
+     */
+    public void remove(int index) {
+        if (index == 0) {
+            if (this.head != null) {
+                this.head = this.head.next;
+                return;
+            } else {
+                throw illegalIndex(index);
+            }
+        }
+        Node prev = findNode(index - 1);
+        Node curr;
+        if (prev != null && (curr = prev.next) != null) {
+            // 上一个节点和被删除的节点不为空
+            prev.next = curr.next;
+        } else {
+            throw illegalIndex(index);
+        }
+    }
+
+
 
 }

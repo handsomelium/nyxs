@@ -35,6 +35,20 @@ public class LinkTest {
 
     }
 
+    /**
+     * 单向链表，带哨兵
+     */
+    @Test
+    public void test3(){
+        SinglyLinkedListSentinel slls = new SinglyLinkedListSentinel();
+        slls.addLast(1);
+        slls.addLast(2);
+        slls.addLast(3);
+        slls.addLast(4);
+        slls.loop(System.out::println);
+
+    }
+
 
 
 
