@@ -1,9 +1,8 @@
 package com.liu.nyxs.jimureport.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.liu.nyxs.domain.JimuResponse;
-import com.liu.nyxs.domain.entity.SysMenu;
-import com.liu.nyxs.service.ISysMenuService;
+import com.liu.nyxs.domain.entity.TestDO;
+import com.liu.nyxs.service.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,24 +19,31 @@ import java.util.List;
 @RequestMapping("/jimuTest")
 public class JimuTestController {
 
+
     @Autowired
-    private ISysMenuService menuService;
+    private ITestService testService;
 
-    //http://127.0.0.1:19999/nyxsservice/jimuTest/getSysMenuData
-    @GetMapping("/getSysMenuData")
-    public JimuResponse<?> getSysMenuData(){
 
-        QueryWrapper<SysMenu> param = new QueryWrapper<>();
-        param.eq("parent_id", 0L);
-        List<SysMenu> paranMenuList = menuService.list(param);
-        return getJimuResponse(paranMenuList);
+    // http://127.0.0.1:19999/nyxsservice/jimuTest/getTestData
+    @GetMapping("/getTestData")
+    public JimuResponse<?> getTestData(){
+        List<TestDO> testDOList = testService.list();
+        return getJimuResponse(testDOList);
 
     }
 
-    private JimuResponse<?> getJimuResponse(List<SysMenu> paranMenuList) {
-        JimuResponse<SysMenu> response = new JimuResponse<>();
-        response.setData(paranMenuList);
-        response.setCount(paranMenuList.size());
+    // http://127.0.0.1:19999/nyxsservice/jimuTest/getTestData2
+    @GetMapping("/getTestData2")
+    public JimuResponse<?> getTestData2(){
+        List<TestDO> testDOList = testService.list();
+        return getJimuResponse(testDOList);
+
+    }
+
+    private <T> JimuResponse<T> getJimuResponse(List<T> list) {
+        JimuResponse<T> response = new JimuResponse<>();
+        response.setData(list);
+        response.setCount(list.size());
         response.setTotal(1);
         return response;
 
