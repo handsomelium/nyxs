@@ -44,8 +44,7 @@ public class NettyServer {
             future1.channel().closeFuture().sync();
 
         }catch (Exception e){
-            e.printStackTrace();
-            log.error("netty服务器开启失败");
+            log.error("netty服务器开启失败, {}", e.getMessage(), e);
         }finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
