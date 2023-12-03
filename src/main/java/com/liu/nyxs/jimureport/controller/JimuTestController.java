@@ -44,7 +44,7 @@ public class JimuTestController {
         JimuResponse<T> response = new JimuResponse<>();
         response.setData(list);
         response.setCount(list.size());
-        response.setTotal(1);
+        response.setTotal(1L);
         return response;
 
     }
