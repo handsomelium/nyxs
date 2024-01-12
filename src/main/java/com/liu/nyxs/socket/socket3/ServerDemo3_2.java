@@ -19,7 +19,7 @@ public class ServerDemo3_2 {
 
     public static void main(String[] args) {
         try {
-            System.out.println("===服务端启动成功===");
+            System.out.println("===服务端启动成功=== ");
             // 1、注册端口
             ServerSocket serverSocket = new ServerSocket(6666);
             // a.定义一个死循环由主线程负责不断的接收客户端的Socket管道连接。
