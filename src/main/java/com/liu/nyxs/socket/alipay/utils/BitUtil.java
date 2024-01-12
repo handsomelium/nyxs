@@ -8,6 +8,8 @@ public class BitUtil
 
     public BitUtil()
     {
+
+
     }
 
     public static boolean readBit(int data, int pos)
